@@ -1,7 +1,8 @@
 const express = require("express")
 var app = express()
-var {Bank} = require("./bank")
 var {mongoose} = require("./mongo");
+var {Bank} = require("./bank")
+
 var request = require("request");
 var idGroup=[]
 var bank;
