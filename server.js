@@ -1,3 +1,5 @@
+require("./config.js")
+
 const express = require("express")
 var app = express()
 var {mongoose} = require("./mongo");
