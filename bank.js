@@ -5,7 +5,7 @@ var Bank = mongoose.model("Bank", {
         required:true
     },
 when:{
-type:"string",
+type:Object,
 required:true
 }
 })

@@ -36,7 +36,7 @@ app.get("/search/:id", (req, res)=>{
                 console.log("saved to mongodb");
                 
             }, (err)=>{
-                console.log('could not send');
+                console.log('could not send', err);
                 
             });
         res.send((b))
