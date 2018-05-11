@@ -10,7 +10,7 @@ type:Object,
 required:true
 }
 
-})//, { capped: { size: 1024, max: 10, autoIndexId: true} })
+}, { capped: { size: 1024, max: 10, autoIndexId: true} })
 
 
 
