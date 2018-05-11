@@ -6,7 +6,6 @@ var {mongoose} = require("./mongo");
 var {Bank} = require("./bank")
 
 var request = require("request");
-var idGroup=[]
 var bank;
 var port = process.env.PORT;
 
@@ -19,7 +18,6 @@ app.get("/", (req, res)=>{
 
 app.get("/search/:id", (req, res)=>{
     var id = req.params.id
-    idGroup.push({term:id, when:new Date().getHours()})
     var query =req.query
     request({url:`https://www.googleapis.com/customsearch/v1?key=AIzaSyCvqmHf2C_1Spngdel7a2CTo4nQMG-ZBtA&cx=010886161073826396288:p7k4yyiypdo&q=${id}&searchType=image&safe=high&num=${query.offset}`,
     json:true},
@@ -53,6 +51,7 @@ app.get("/search/:id", (req, res)=>{
     
 app.get("/latest", (req, res)=>{
 Bank.find({}, {_id:0, __v:0}).then((doc)=>{
+    doc.reverse()
     res.send(doc)
 },(err)=>{
     console.log('Could not retrieve documents');
