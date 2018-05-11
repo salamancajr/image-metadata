@@ -12,7 +12,7 @@ var port = process.env.PORT;
 
 
 app.get("/", (req, res)=>{
-    app.sendFile(__dirname+"/index.html")
+    res.sendFile(__dirname+"/index.html")
 })
 
 
