@@ -1,0 +1,86 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Image Search Abstraction Layer</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+  </head>
+  <body>
+<div style="padding-bottom:5px;overflow:scroll;width:60%;height:80%;background-color:cornsilk;position:absolute; top:0; bottom:0; left:0;right:0;margin:auto;    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <h1 style="text-align:center">
+      Image Search Abstraction Layer
+    </h1>
+
+
+    <main style="width:90%; margin:auto;">
+      <p class="bold">Hello!</p>
+      <p style="margin-top:40px">Add the word search followed by a slash followed by a search word to the end of the web address 
+        to get the image results for your word and indicate how many results you would like to be returned using offset. 
+      
+        <br>
+        <br> An example of this might be the following:
+        <br>
+        <br>
+        <a href="https://imgsearch1.glitch.me/search/cute dogs?offset=5" target="_blank">https://imgsearch1.glitch.me/search/cute dogs?offset=5</a>,
+        <br>
+        will return 5 search results for cute dogs.
+        <br>
+        <br>
+        <a href="https://imgsearch1.glitch.me/search/big rocket?offset=10" target="_blank">
+          https://imgsearch1.glitch.me/search/big rocket?offset=10</a>,
+        <br>
+        will return 10 search results for big rocket.
+        <br>
+      <br>
+        The offset can be set to a maximum of ten search results.
+        <br>
+        <br>
+        To see the last ten searches with a timestamp included, click the link below:<br>
+        <a href="https://imgsearch1.glitch.me/latest" target="_blank">
+          https://imgsearch1.glitch.me/latest</a>
+        <br>
+
+      </p>
+      <br> Or just add it into the field below:
+      <br>
+      <br>
+      <input id="input" type="text">Enter search word<br>
+      <input id="input2" type="text">Number of results (1-10) to return<br>
+      <button id="button" style="width:60px">Submit</button>
+    </main>
+  </div>
+
+
+
+  <script>
+    var btn = document.getElementById("button")
+
+    btn.addEventListener("click", function () {
+      var val = document.getElementById("input").value;
+      var val2 = document.getElementById("input2").value;
+      var reg = RegExp('^[0-9]+$')
+      console.log(val2<11)
+      if (!reg.test(val) && reg.test(val2) && val2<11 && val2>0){
+     
+        window.open(`https://imgsearch1.glitch.me/search/${val}?offset=${val2}`)
+      }
+      else{alert("Please provide a search word in the top input field and a number from 1 to 10 in the bottom field")}
+    })
+  </script>
+  </body>
+</html>

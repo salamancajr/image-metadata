@@ -9,6 +9,14 @@ var request = require("request");
 var idGroup=[]
 var bank;
 var port = process.env.PORT;
+
+
+app.get("/", (req, res)=>{
+    app.sendFile(__dirname+"/index.html")
+})
+
+
+
 app.get("/search/:id", (req, res)=>{
     var id = req.params.id
     idGroup.push({term:id, when:new Date().getHours()})
